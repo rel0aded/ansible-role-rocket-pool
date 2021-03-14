@@ -1,12 +1,26 @@
 ---
-eth1_client: geth
-eth2_client: prysm
 
+###############
+# Rocket Pool settings
+###############
+
+rocket_pool_version: latest
+
+###############
 # ETH1 settings
+###############
+
+eth1_client: geth
+
 ethstats_label: "\"\""
 ethstats_login: "\"\""
 infura_project_id: "\"\""
 provider_url: "\"\""
 
+###############
 # ETH2 settings
+###############
+
+eth2_client: prysm
+
 graffiti: "\"\""

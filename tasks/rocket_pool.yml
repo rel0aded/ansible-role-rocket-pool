@@ -6,7 +6,7 @@
 
 - name: Download Rocket Pool binary
   get_url:
-    url: https://github.com/rocket-pool/smartnode-install/releases/latest/download/rocketpool-cli-linux-amd64
+    url: https://github.com/rocket-pool/smartnode-install/releases/{{ rocket_pool_version }}/download/rocketpool-cli-linux-amd64
     dest: ~/bin/rocketpool
     mode: u=rwx,g=rx,o=rx
 
@@ -17,13 +17,13 @@
 
 - name: Download Rocket Pool configuration
   unarchive:
-    src: https://github.com/rocket-pool/smartnode-install/releases/latest/download/rp-smartnode-install.tar.xz
+    src: https://github.com/rocket-pool/smartnode-install/releases/{{ rocket_pool_version }}/download/rp-smartnode-install.tar.xz
     dest: ~/.rocketpool
     remote_src: yes
     # Unpack only the necessary files
     extra_opts: [--strip-components=3]
 
-- name: Create default settings file
+- name: Create settings file
   template:
     src: settings.yml.j2
     dest: ~/.rocketpool/settings.yml
