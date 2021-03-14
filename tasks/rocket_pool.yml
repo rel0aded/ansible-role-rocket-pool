@@ -27,3 +27,9 @@
   template:
     src: settings.yml.j2
     dest: ~/.rocketpool/settings.yml
+
+- name: Start Rocket Pool services
+  shell:
+    cmd: ~/bin/rocketpool {{ '--allow-root' if (hostvars[inventory_hostname].molecule_file is defined) else '' }} service start
+  args:
+    creates: ~/.rocketpool/data
