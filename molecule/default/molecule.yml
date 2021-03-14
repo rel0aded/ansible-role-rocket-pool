@@ -1,11 +1,24 @@
 ---
 dependency:
   name: galaxy
+
 driver:
-  name: delegated
-platforms:
-  - name: instance
+  name: docker
+
 provisioner:
   name: ansible
+
 verifier:
   name: ansible
+
+lint: yamllint --config-file .yamllint --strict --format parsable .
+
+platforms:
+  - name: ubuntu-2004
+    image: geerlingguy/docker-ubuntu2004-ansible
+    pre_build_image: true
+    privileged: true
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - /tmp/docker:/var/lib/docker
+    command: /usr/sbin/init
