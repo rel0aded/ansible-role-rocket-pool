@@ -29,4 +29,5 @@ graffiti: "\"\""
 # Feature set
 ###############
 
+start_containers: false
 monitoring: true

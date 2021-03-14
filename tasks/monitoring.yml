@@ -25,3 +25,4 @@
 - name: Start monitoring services
   docker_compose:
     project_src: ~/grafana-for-rpool
+  when: start_containers|bool == true

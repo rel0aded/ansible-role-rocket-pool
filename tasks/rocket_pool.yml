@@ -33,3 +33,4 @@
     cmd: ~/bin/rocketpool {{ '--allow-root' if (hostvars[inventory_hostname].molecule_file is defined) else '' }} service start
   args:
     creates: ~/.rocketpool/data
+  when: start_containers|bool == true
