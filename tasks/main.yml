@@ -1,2 +1,4 @@
 ---
 - include_tasks: docker.yml
+
+- include_tasks: rocket_pool.yml

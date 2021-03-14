@@ -1,0 +1,11 @@
+---
+- name: Create ~/bin directory
+  file:
+    state: directory
+    path: ~/bin
+
+- name: Download Rocket Pool binary
+  get_url:
+    url: https://github.com/rocket-pool/smartnode-install/releases/latest/download/rocketpool-cli-linux-amd64
+    dest: ~/bin/rocketpool
+    mode: u=rwx,g=rx,o=rx
