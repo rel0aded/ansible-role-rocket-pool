@@ -20,5 +20,6 @@ platforms:
     privileged: true
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
-      - tmp-docker:/var/lib/docker
+    tmpfs:
+      - /var/lib/docker
     command: /usr/sbin/init
