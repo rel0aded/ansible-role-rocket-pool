@@ -24,3 +24,9 @@ provider_url: "\"\""
 eth2_client: prysm
 
 graffiti: "\"\""
+
+###############
+# Feature set
+###############
+
+monitoring: true

@@ -1,0 +1,27 @@
+---
+- name: Clone Rocket Pool grafana config
+  git:
+    repo: 'https://github.com/yorickdowne/grafana-for-rpool.git'
+    dest: ~/grafana-for-rpool
+
+- name: Check for grafana-for-rpool .env file
+  stat:
+    path: ~/grafana-for-rpool/.env
+  register: env_file
+
+- name: Copy default.env to .env
+  copy:
+    src: ~/grafana-for-rpool/default.env
+    dest: ~/grafana-for-rpool/.env
+    remote_src: yes
+  when: not env_file.stat.exists
+
+- name: Configure prometheus
+  lineinfile:
+    path: ~/grafana-for-rpool/.env
+    regexp: '^CLIENT='
+    line: CLIENT={{ eth2_client }}
+
+- name: Start monitoring services
+  docker_compose:
+    project_src: ~/grafana-for-rpool
