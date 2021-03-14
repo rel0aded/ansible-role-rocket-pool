@@ -1,2 +1,2 @@
 ---
-# tasks file for ansible-role-rocket-pool
+- include_tasks: docker.yml
