@@ -1,0 +1,19 @@
+chains:
+  eth1:
+    client:
+      selected: {{ eth1_client }}
+      params:
+      - env: ETHSTATS_LABEL
+        value: {{ ethstats_label }}
+      - env: ETHSTATS_LOGIN
+        value: {{ ethstats_login }}
+      - env: INFURA_PROJECT_ID
+        value: {{ infura_project_id }}
+      - env: PROVIDER_URL
+        value: {{ provider_url }}
+  eth2:
+    client:
+      selected: {{ eth2_client}}
+      params:
+      - env: CUSTOM_GRAFFITI
+        value: {{ graffiti }}

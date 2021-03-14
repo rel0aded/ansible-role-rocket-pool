@@ -1,2 +1,12 @@
 ---
-# defaults file for ansible-role-rocket-pool
+eth1_client: geth
+eth2_client: prysm
+
+# ETH1 settings
+ethstats_label: "\"\""
+ethstats_login: "\"\""
+infura_project_id: "\"\""
+provider_url: "\"\""
+
+# ETH2 settings
+graffiti: "\"\""
