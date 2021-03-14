@@ -9,3 +9,9 @@
 
 - include_role:
     name: geerlingguy.docker
+  vars:
+    docker_install_compose: false
+
+- name: Install docker-compose
+  pip:
+    name: docker-compose
