@@ -22,6 +22,8 @@
     remote_src: yes
     # Unpack only the necessary files
     extra_opts: [--strip-components=3]
+  args:
+    creates: ~/.rocketpool/chains
 
 - name: Create settings file
   template:
