@@ -1,0 +1,17 @@
+---
+# Validator of regex matching
+# https://regex101.com/r/Ibu0oL/1
+
+- name: Limit Geth maxpeers
+  lineinfile:
+    path: ~/.rocketpool/chains/eth1/start-node.sh
+    regexp: '^(\s*CMD=\"/usr/local/bin/geth )(?:(--.* )?(--maxpeers \d+ ))?((--.* )?--goerli.*\")'
+    line: '\1\2--maxpeers 12 \4'
+    backrefs: yes
+
+- name: Limit Geth cache
+  lineinfile:
+    path: ~/.rocketpool/chains/eth1/start-node.sh
+    regexp: '^(\s*CMD=\"/usr/local/bin/geth )(?:(--.* )?(--cache \d+ ))?((--.* )?--goerli.*\")'
+    line: '\1\2--cache 256 \4'
+    backrefs: yes
