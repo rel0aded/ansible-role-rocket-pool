@@ -22,3 +22,10 @@
     regexp: '^(\s*CMD=\"/usr/local/bin/geth )(?:(--.* )?(--syncmode \w+ ))?((--.* )?--goerli.*\")'
     line: "\\1\\2{{ '--syncmode '+geth_syncmode+' ' if (geth_syncmode != '') else '' }}\\4"
     backrefs: yes
+
+- name: Configure Geth for Prometheus monitoring
+  lineinfile:
+    path: ~/.rocketpool/chains/eth1/start-node.sh
+    regexp: '^(\s*CMD=\"/usr/local/bin/geth )(?:(--.* )?(--metrics --metrics.expensive --pprof --pprof.addr=\d+\.\d+\.\d+\.\d+ ))?((--.* )?--goerli.*\")'
+    line: "\\1\\2{{ '--metrics --metrics.expensive --pprof --pprof.addr=0.0.0.0 ' if (monitoring|bool == true) else '' }}\\4"
+    backrefs: yes
