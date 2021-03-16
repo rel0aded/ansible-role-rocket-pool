@@ -1,0 +1,14 @@
+---
+- name: Configure Lighthouse beacon for Prometheus monitoring
+  lineinfile:
+    path: ~/.rocketpool/chains/eth2/start-beacon.sh
+    regexp: '^(\s*exec /usr/local/bin/lighthouse beacon )(?:(--.* )?(--metrics --metrics-address \d+\.\d+\.\d+\.\d+ ))?((--.* )?--network pyrmont.*)'
+    line: "\\1\\2{{ '--metrics --metrics-address 0.0.0.0 ' if (monitoring|bool == true) else '' }}\\4"
+    backrefs: yes
+
+- name: Configure Lighthouse validator for Prometheus monitoring
+  lineinfile:
+    path: ~/.rocketpool/chains/eth2/start-validator.sh
+    regexp: '^(\s*exec /usr/local/bin/lighthouse validator )(?:(--.* )?(--metrics --metrics-address \d+\.\d+\.\d+\.\d+ ))?((--.* )?--network pyrmont.*\")'
+    line: "\\1\\2{{ '--metrics --metrics-address 0.0.0.0 ' if (monitoring|bool == true) else '' }}\\4"
+    backrefs: yes
