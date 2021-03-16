@@ -4,13 +4,13 @@
 # Rocket Pool settings
 ###############
 
-rocket_pool_version: latest
+rocket_pool_version: "latest"
 
 ###############
 # ETH1 settings
 ###############
 
-eth1_client: geth
+eth1_client: "geth"
 
 ethstats_label: "\"\""
 ethstats_login: "\"\""
@@ -21,7 +21,7 @@ provider_url: "\"\""
 # ETH2 settings
 ###############
 
-eth2_client: prysm
+eth2_client: "prysm"
 
 graffiti: "\"\""
 
