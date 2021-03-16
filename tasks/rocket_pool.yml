@@ -31,6 +31,7 @@
     dest: ~/.rocketpool/settings.yml
 
 - include_tasks: geth_configuration.yml
+  when: eth1_client == "geth"
 
 - name: Start Rocket Pool services
   shell:
