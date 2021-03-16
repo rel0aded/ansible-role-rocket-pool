@@ -1,5 +1,6 @@
 ---
 - include_tasks: docker.yml
+  when: installation_mode == "docker"
 
 - include_tasks: rocket_pool.yml
 

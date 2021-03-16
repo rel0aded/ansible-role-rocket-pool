@@ -5,6 +5,7 @@
 ###############
 
 rocket_pool_version: "latest"
+installation_mode: "docker"
 
 ###############
 # ETH1 settings
