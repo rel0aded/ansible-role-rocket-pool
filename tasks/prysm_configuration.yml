@@ -1,0 +1,14 @@
+---
+- name: Configure Prysm beacon for Prometheus monitoring
+  lineinfile:
+    path: ~/.rocketpool/chains/eth2/start-beacon.sh
+    regexp: '^(\s*exec /app/cmd/beacon-chain/beacon-chain )(?:(--.* )?(--monitoring-host \d+\.\d+\.\d+\.\d+ ))?((--.* )?--accept-terms-of-use.*)'
+    line: "\\1\\2{{ '--monitoring-host 0.0.0.0 ' if (monitoring|bool == true) else '' }}\\4"
+    backrefs: yes
+
+- name: Configure Prysm validator for Prometheus monitoring
+  lineinfile:
+    path: ~/.rocketpool/chains/eth2/start-validator.sh
+    regexp: '^(\s*exec /app/cmd/validator/validator )(?:(--.* )?(--monitoring-host \d+\.\d+\.\d+\.\d+ ))?((--.* )?--accept-terms-of-use.*\")'
+    line: "\\1\\2{{ '--monitoring-host 0.0.0.0 ' if (monitoring|bool == true) else '' }}\\4"
+    backrefs: yes

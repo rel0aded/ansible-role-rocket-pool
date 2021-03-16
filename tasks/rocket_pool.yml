@@ -33,6 +33,9 @@
 - include_tasks: geth_configuration.yml
   when: eth1_client == "geth"
 
+- include_tasks: prysm_configuration.yml
+  when: eth2_client == "prysm"
+
 - name: Start Rocket Pool services
   shell:
     cmd: ~/bin/rocketpool {{ '--allow-root' if (hostvars[inventory_hostname].molecule_file is defined) else '' }} service start
