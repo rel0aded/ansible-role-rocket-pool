@@ -15,3 +15,10 @@
     regexp: '^(\s*CMD=\"/usr/local/bin/geth )(?:(--.* )?(--cache \d+ ))?((--.* )?--goerli.*\")'
     line: "\\1\\2{{ '--cache '+geth_cache+' ' if (geth_cache != '') else '' }}\\4"
     backrefs: yes
+
+- name: Set Geth sync mode
+  lineinfile:
+    path: ~/.rocketpool/chains/eth1/start-node.sh
+    regexp: '^(\s*CMD=\"/usr/local/bin/geth )(?:(--.* )?(--syncmode \w+ ))?((--.* )?--goerli.*\")'
+    line: "\\1\\2{{ '--syncmode '+geth_syncmode+' ' if (geth_syncmode != '') else '' }}\\4"
+    backrefs: yes
