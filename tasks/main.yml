@@ -1,4 +1,6 @@
 ---
+- include_tasks: timesyncd.yml
+
 - include_tasks: docker.yml
   when: installation_mode == "docker"
 

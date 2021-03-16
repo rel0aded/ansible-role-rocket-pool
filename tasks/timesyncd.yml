@@ -1,0 +1,6 @@
+---
+- name: Ensure timesyncd is started and runs at boot
+  service:
+    name: systemd-timesyncd.service
+    enabled: yes
+    state: started
