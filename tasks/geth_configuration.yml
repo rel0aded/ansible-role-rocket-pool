@@ -6,12 +6,12 @@
   lineinfile:
     path: ~/.rocketpool/chains/eth1/start-node.sh
     regexp: '^(\s*CMD=\"/usr/local/bin/geth )(?:(--.* )?(--maxpeers \d+ ))?((--.* )?--goerli.*\")'
-    line: '\1\2--maxpeers {{ geth_maxpeers }} \4'
+    line: "\\1\\2{{ '--maxpeers '+geth_maxpeers+' ' if (geth_maxpeers != '') else '' }}\\4"
     backrefs: yes
 
 - name: Limit Geth cache
   lineinfile:
     path: ~/.rocketpool/chains/eth1/start-node.sh
     regexp: '^(\s*CMD=\"/usr/local/bin/geth )(?:(--.* )?(--cache \d+ ))?((--.* )?--goerli.*\")'
-    line: '\1\2--cache {{ geth_cache }} \4'
+    line: "\\1\\2{{ '--cache '+geth_cache+' ' if (geth_cache != '') else '' }}\\4"
     backrefs: yes
