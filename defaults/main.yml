@@ -17,6 +17,9 @@ ethstats_login: "\"\""
 infura_project_id: "\"\""
 provider_url: "\"\""
 
+geth_cache: "256"
+geth_maxpeers: "12"
+
 ###############
 # ETH2 settings
 ###############
