@@ -7,7 +7,7 @@ Created as a way to build a repeatable installation of Rocket Pool, exposing var
 
 Additionally, integrates the work of [jclapis' Rocket Pool Raspberry Pi Guide](https://github.com/jclapis/rp-pi-guide) for various optimisations, as well as [YorickDowne's Prometheus/Grafana Docker stack](https://github.com/yorickdowne/grafana-for-rpool) for monitoring.
 
-Prometheus access is available at http://<HOST-IP>:3000 with the credentials `admin:admin`, which should be changed to something secure on first login. Pre-configured dashboards are available; however, Nimbus and Teku are currently not supported as data sources.
+Prometheus access is available at http://\<HOST-IP\>:3000 with the credentials `admin:admin`, which should be changed to something secure on first login. Pre-configured dashboards are available; however, Nimbus and Teku are currently not supported as data sources.
 
 Requirements
 ------------
