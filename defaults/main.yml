@@ -1,6 +1,13 @@
 ---
 
 ###############
+# Feature set
+###############
+
+start_containers: false
+monitoring: true
+
+###############
 # Rocket Pool settings
 ###############
 
@@ -29,10 +36,3 @@ geth_syncmode: "snap"
 eth2_client: "prysm"
 
 graffiti: "\"\""
-
-###############
-# Feature set
-###############
-
-start_containers: false
-monitoring: true

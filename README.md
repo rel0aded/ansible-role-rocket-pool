@@ -7,7 +7,7 @@ Created as a way to build a repeatable installation of Rocket Pool, exposing var
 
 Additionally, integrates the work of [jclapis' Rocket Pool Raspberry Pi Guide](https://github.com/jclapis/rp-pi-guide) for various optimisations, as well as [YorickDowne's Prometheus/Grafana Docker stack](https://github.com/yorickdowne/grafana-for-rpool) for monitoring.
 
-Prometheus access is available at http://\<HOST-IP\>:3000 with the credentials `admin:admin`, which should be changed to something secure on first login. Pre-configured dashboards are available; however, Nimbus and Teku are currently not supported as data sources.
+If the `monitoring` variable is set to true, Prometheus access will be available at http://\<HOST-IP\>:3000 with the credentials `admin:admin` after completion (these should be changed to something secure on first login). Pre-configured dashboards are available; however, Nimbus and Teku are currently not supported as data sources.
 
 Requirements
 ------------
@@ -17,12 +17,19 @@ Requirements
 Role Variables
 --------------
 
+Feature Set Variable
+
+| Name  | Default Setting | Description |
+| --- | --- | --- |
+| start_containers | false | Determines whether to start all deployed Docker containers as part of the execution, or start manually afterwards.<br />Disabled by default while still in development  |
+| monitoring | true  | Deploys [YorickDowne's Prometheus/Grafana Docker stack](https://github.com/yorickdowne/grafana-for-rpool) as part of the installation. Also configures the necessary client flags to enable monitoring |
+
 Rocket Pool Variables
 
 | Name  | Default Setting | Description |
 | --- | --- | --- |
-| rocket_pool_version | latest | Which release version to install. Examples include "latest" or "tag/1.0.0-beta.0"  |
-| installation_mode | docker | Install the Rocket Pool stack as Docker containers or native services. Docker only for now  |
+| rocket_pool_version | latest | Which release version to install.<br />Examples include "latest" or "tag/1.0.0-beta.0"  |
+| installation_mode | docker | Install the Rocket Pool stack as Docker containers or native services.<br />Docker only for now |
 
 Dependencies
 ------------
